@@ -1,24 +1,3 @@
 {
-  "notes": [
-    {
-      "title": "First Note",
-      "text": "no text",
-      "id": "2da1"
-    },
-    {
-      "title": "Second Note",
-      "text": "no charm",
-      "id": "008b"
-    },
-    {
-      "title": "not wyat",
-      "text": "s",
-      "id": "44bf"
-    },
-    {
-      "title": "adding a note",
-      "text": "empty",
-      "id": "6093"
-    }
-  ]
+  "notes": []
 }

@@ -1,5 +1,5 @@
 const router = require('express').Router();
-const { findById, createNewNote } = require('../../lib/notes');
+const { findById, createNewNote, deleteNote } = require('../../lib/notes');
 const { notes } = require('../../data/db');
   
   
@@ -9,15 +9,19 @@ const { notes } = require('../../data/db');
 
   router.post('/notes', (req, res) => {
       const note = createNewNote(req.body, notes);
+      // add the new note and rewrite the json file
       res.json(note);
   });
 
-  router.get('/notes/:id', (req, res) => {
+  router.delete('/notes/:id', (req, res) => {
       const result = findById(req.params.id, notes);
-      if (result) {
-        res.json(result);
+      // return the index of the matched id
+      
+      if (result !== null) {
+        res.json(deleteNote(result, notes)); 
+        // delete the matched element and rewrite the json file
       } else {
-        res.send(404).send('Item not found.');
+        res.sendStatus(404);
       }
   });
   
